@@ -1,0 +1,11 @@
+# Supabase Configuration Example
+# Copy this file to supabase/config.toml and fill in your actual project details
+
+# Your Supabase project ID (found in your project settings)
+project_id = "your-project-id-here"
+
+# Example:
+# project_id = "abcdefghijklmnopqrstuvwxyz"
+
+# Note: This file contains sensitive project information
+# Make sure to add supabase/config.toml to your .gitignore

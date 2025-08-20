@@ -72,6 +72,39 @@ A modern, real-time cryptocurrency dashboard built with React, TypeScript, and S
 - **Environment Variables** - Secure configuration
 - **CI/CD** - Automatic deployments
 
+## 🔒 Security Setup
+
+### **Environment Variables**
+⚠️ **IMPORTANT**: Never commit your actual environment variables to git!
+
+1. **Copy the example file**:
+   ```bash
+   cp env.example .env
+   ```
+
+2. **Fill in your actual values** in `.env`:
+   ```env
+   VITE_SUPABASE_URL=https://your-project-id.supabase.co
+   VITE_SUPABASE_ANON_KEY=your_actual_anon_key_here
+   ```
+
+3. **Verify `.env` is in `.gitignore`** (it should be already)
+
+### **Supabase Configuration**
+1. **Copy the example config**:
+   ```bash
+   cp supabase/config.example.toml supabase/config.toml
+   ```
+
+2. **Add your project ID** to `supabase/config.toml`
+
+### **Security Checklist**
+- ✅ `.env` file is in `.gitignore`
+- ✅ `supabase/config.toml` is in `.gitignore`
+- ✅ No API keys or secrets in committed files
+- ✅ Environment variables are properly set
+- ✅ Supabase Row Level Security is enabled
+
 ## 🚀 Quick Start
 
 ### Prerequisites
