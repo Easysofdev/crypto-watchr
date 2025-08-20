@@ -1,0 +1,297 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Crypto Dashboard Design System - Dark SaaS Theme
+All colors MUST be HSL. Beautiful gradients and animations.
+*/
+
+@layer base {
+  :root {
+    /* Dark crypto theme */
+    --background: 222 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 217 32% 8%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 217 32% 8%;
+    --popover-foreground: 210 40% 98%;
+
+    /* Crypto brand colors */
+    --primary: 47 96% 53%; /* Bitcoin gold */
+    --primary-foreground: 222 84% 4.9%;
+    --primary-glow: 47 86% 68%;
+
+    --secondary: 217 32% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217 32% 17.5%;
+    --muted-foreground: 215 20% 65%;
+
+    --accent: 120 93% 50%; /* Success green */
+    --accent-foreground: 222 84% 4.9%;
+
+    --destructive: 0 84% 60%; /* Danger red */
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217 32% 17.5%;
+    --input: 217 32% 17.5%;
+    --ring: 47 96% 53%;
+
+    /* Crypto specific colors */
+    --crypto-green: 120 93% 50%;
+    --crypto-red: 0 84% 60%;
+    --crypto-orange: 25 95% 53%;
+    --crypto-blue: 213 94% 68%;
+    --crypto-purple: 262 83% 58%;
+
+    /* Gradients */
+    --gradient-primary: linear-gradient(
+      135deg,
+      hsl(47 96% 53%),
+      hsl(25 95% 53%)
+    );
+    --gradient-card: linear-gradient(145deg, hsl(217 32% 8%), hsl(217 32% 12%));
+    --gradient-hero: linear-gradient(
+      135deg,
+      hsl(222 84% 4.9%),
+      hsl(217 32% 8%)
+    );
+    --gradient-accent: linear-gradient(
+      135deg,
+      hsl(120 93% 50%),
+      hsl(150 93% 50%)
+    );
+    --gradient-glow: linear-gradient(
+      135deg,
+      hsl(47 96% 53% / 0.1),
+      hsl(25 95% 53% / 0.1)
+    );
+
+    /* Shadows */
+    --shadow-crypto: 0 10px 30px -10px hsl(47 96% 53% / 0.3);
+    --shadow-card: 0 4px 20px -4px hsl(222 84% 4.9% / 0.5);
+    --shadow-glow: 0 0 40px hsl(47 86% 68% / 0.4);
+    --shadow-xl: 0 20px 25px -5px hsl(222 84% 4.9% / 0.1),
+      0 10px 10px -5px hsl(222 84% 4.9% / 0.04);
+    --shadow-2xl: 0 25px 50px -12px hsl(222 84% 4.9% / 0.25);
+
+    /* Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-crypto: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    --transition-bounce: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+    --radius: 0.75rem;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    /* Dark theme is default - same as root */
+    --background: 222 84% 4.9%;
+    --foreground: 210 40% 98%;
+    --card: 217 32% 8%;
+    --card-foreground: 210 40% 98%;
+    --popover: 217 32% 8%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 47 96% 53%;
+    --primary-foreground: 222 84% 4.9%;
+    --secondary: 217 32% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217 32% 17.5%;
+    --muted-foreground: 215 20% 65%;
+    --accent: 120 93% 50%;
+    --accent-foreground: 222 84% 4.9%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217 32% 17.5%;
+    --input: 217 32% 17.5%;
+    --ring: 47 96% 53%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    background: var(--gradient-hero);
+    min-height: 100vh;
+  }
+
+  /* Scrollbar styling */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: hsl(var(--muted));
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: hsl(var(--primary));
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--primary-glow));
+  }
+
+  /* Crypto specific animations */
+  .crypto-glow {
+    box-shadow: var(--shadow-glow);
+  }
+
+  .crypto-pulse {
+    animation: crypto-pulse 2s ease-in-out infinite;
+  }
+
+  @keyframes crypto-pulse {
+    0%,
+    100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.8;
+    }
+  }
+
+  .crypto-float {
+    animation: crypto-float 6s ease-in-out infinite;
+  }
+
+  @keyframes crypto-float {
+    0%,
+    100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+
+  /* Smooth transitions for all interactive elements */
+  button,
+  .card,
+  .nav-item {
+    transition: var(--transition-smooth);
+  }
+
+  /* Card hover effects */
+  .crypto-card {
+    background: var(--gradient-card);
+    box-shadow: var(--shadow-card);
+    transition: var(--transition-crypto);
+    border: 1px solid hsl(var(--border) / 0.1);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+  }
+
+  .crypto-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-crypto);
+    border-color: hsl(var(--primary) / 0.2);
+  }
+
+  /* Button enhancements */
+  .btn-primary {
+    background: var(--gradient-primary);
+    transition: var(--transition-bounce);
+  }
+
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-glow);
+  }
+
+  /* Text gradients */
+  .text-gradient {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Glass morphism effect */
+  .glass {
+    background: hsl(var(--card) / 0.8);
+    -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: blur(20px);
+    border: 1px solid hsl(var(--border) / 0.2);
+  }
+
+  /* Loading animations */
+  .loading-shimmer {
+    background: linear-gradient(
+      90deg,
+      hsl(var(--muted)) 0%,
+      hsl(var(--primary) / 0.1) 50%,
+      hsl(var(--muted)) 100%
+    );
+    background-size: 200% 100%;
+    animation: shimmer 2s infinite;
+  }
+
+  @keyframes shimmer {
+    0% {
+      background-position: -200% 0;
+    }
+    100% {
+      background-position: 200% 0;
+    }
+  }
+
+  /* Chart enhancements */
+  .recharts-cartesian-grid-horizontal line,
+  .recharts-cartesian-grid-vertical line {
+    stroke: hsl(var(--border) / 0.3);
+  }
+
+  .recharts-tooltip-wrapper {
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+  }
+
+  /* Badge enhancements */
+  .badge-primary {
+    background: var(--gradient-primary);
+    color: hsl(var(--primary-foreground));
+  }
+
+  /* Input enhancements */
+  .input-enhanced {
+    background: hsl(var(--input) / 0.5);
+    border: 1px solid hsl(var(--border) / 0.2);
+    transition: var(--transition-smooth);
+  }
+
+  .input-enhanced:focus {
+    border-color: hsl(var(--primary));
+    box-shadow: 0 0 0 2px hsl(var(--primary) / 0.2);
+  }
+}
